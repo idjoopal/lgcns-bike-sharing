@@ -9,7 +9,6 @@ import pandas as pd
 from deepchecks.core.suite import SuiteResult
 from deepchecks.tabular import Dataset
 from deepchecks.tabular.suites import model_evaluation, train_test_validation
-from src.preprocess import CAT_FEATURES, preprocess_pipeline
 
 from src.common.constants import (
     ARTIFACT_PATH,
@@ -18,6 +17,7 @@ from src.common.constants import (
     LOG_FILEPATH,
 )
 from src.common.logger import handle_exception, set_logger
+from src.preprocess import CAT_FEATURES, preprocess_pipeline
 
 logger = set_logger(os.path.join(LOG_FILEPATH, "logs.log"))
 sys.excepthook = handle_exception
@@ -25,14 +25,14 @@ warnings.filterwarnings(action="ignore")
 
 
 DATE = datetime.now().strftime("%Y%m%d")
-LABEL_NAME = "rent"
+LABEL_NAME = "count"
 model = joblib.load(os.path.join(ARTIFACT_PATH, "model.pkl"))
 
 
 def load_data(filename: str) -> pd.DataFrame:
     return pd.read_csv(
         os.path.join(DATA_PATH, filename),
-        usecols=lambda x: x not in ["area_locality", "posted_on", "id"],
+        usecols=lambda x: x not in ["datetime"],
     )
 
 
@@ -123,14 +123,14 @@ def main():
         cat_features=CAT_FEATURES,
     )
 
-    logger.info("Detect model drift")
-    model_drift_detection(
-        # TODO: Model drift detection 함수 인자 추가
-        train_df=train_df,
-        new_df=new_df,
-        label=LABEL_NAME,
-        cat_features=CAT_FEATURES,
-    )
+    # logger.info("Detect model drift")
+    # model_drift_detection(
+    #     # TODO: Model drift detection 함수 인자 추가
+    #     train_df=train_df,
+    #     new_df=new_df,
+    #     label=LABEL_NAME,
+    #     cat_features=CAT_FEATURES,
+    # )
 
     logger.info(
         "Detection results can be found in the following path:\n"

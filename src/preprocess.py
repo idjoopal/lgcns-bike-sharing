@@ -4,6 +4,7 @@ from category_encoders import TargetEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import FunctionTransformer
 
+CAT_FEATURES = ["season", "holiday", "workingday", "weather"]
 
 preprocess_pipeline = ColumnTransformer(
     transformers=[
