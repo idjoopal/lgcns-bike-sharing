@@ -115,4 +115,5 @@ def log_feature_importance(
         os.path.join(ARTIFACT_PATH, "feature_importance.png"),
         bbox_inches="tight",
     )
+
     plt.close()
