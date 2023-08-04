@@ -123,14 +123,14 @@ def main():
         cat_features=CAT_FEATURES,
     )
 
-    # logger.info("Detect model drift")
-    # model_drift_detection(
-    #     # TODO: Model drift detection 함수 인자 추가
-    #     train_df=train_df,
-    #     new_df=new_df,
-    #     label=LABEL_NAME,
-    #     cat_features=CAT_FEATURES,
-    # )
+    logger.info("Detect model drift")
+    model_drift_detection(
+        # TODO: Model drift detection 함수 인자 추가
+        train_df=train_df,
+        new_df=new_df,
+        label=LABEL_NAME,
+        cat_features=CAT_FEATURES,
+    )
 
     logger.info(
         "Detection results can be found in the following path:\n"

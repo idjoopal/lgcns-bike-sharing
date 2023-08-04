@@ -134,7 +134,7 @@ if __name__ == "__main__":
 
     # BentoML에 모델 저장
     bentoml.sklearn.save_model(
-        name="house_rent",
+        name="bike_sharing",
         model=mlflow.sklearn.load_model(
             # TODO: 베스트 모델 URI
             best_model_uri
