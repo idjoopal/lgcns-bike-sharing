@@ -1,5 +1,6 @@
 from itertools import product
 
+
 def get_param_set(params: dict) -> list:
     params_keys = params.keys()
     params_values = [

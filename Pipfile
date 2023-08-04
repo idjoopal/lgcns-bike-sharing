@@ -23,7 +23,15 @@ black = "*"
 isort = "*"
 mypy = "*"
 jupyter = "*"
+<<<<<<< HEAD
+ipython = "*"
+ipykernel = "*"
+
+[requires]
+python_version = "3.9"
+=======
 
 [requires]
 python_version = "3.9"
 python_full_version = "3.9.16"
+>>>>>>> 9f10412be6e406f05fd121b8ddf3aee92af664d5
